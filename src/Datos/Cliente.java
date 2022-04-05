@@ -2,7 +2,7 @@ package Datos;
 
 public class Cliente 
 {
-    int a = 0;
+    
     private String nombre;
     private String identificacion;
     private float saldoInicial;
