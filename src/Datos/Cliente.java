@@ -7,6 +7,7 @@ public class Cliente
     private String identificacion;
     private float saldoInicial;
     
+    
     public String obNombre()
     {
         return this.nombre;
@@ -47,7 +48,8 @@ public class Cliente
         
         String Digitos = (Character.toString(num1)+Character.toString(num2)+Character.toString(num3)+Character.toString(num4));
         
-        return Digitos;
+        return (Digitos);
         
     }
+
 }

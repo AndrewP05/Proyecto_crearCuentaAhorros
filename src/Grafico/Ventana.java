@@ -1,5 +1,7 @@
 package Grafico;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import javax.swing.JOptionPane;
 
 public class Ventana extends javax.swing.JFrame {
@@ -144,7 +146,7 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_JtextIdentificacionActionPerformed
 
     private void JbuttonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbuttonCrearActionPerformed
-        JOptionPane.showMessageDialog(this, "Se a creado la cuenta de ahorros con el numero: 11223667 , a la fecha: Sun Mar 27 19:15:22 COT 2022");
+        JOptionPane.showMessageDialog(this, "Se a creado la cuenta de ahorros con el numero: 11223667 , a la fecha: "+obtenerFechaCreacion());
         new Ventana2().setVisible(true);
         
         
@@ -190,6 +192,13 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
     }
+    
+    public String obtenerFechaCreacion()
+    {
+        String timeStamp = new SimpleDateFormat("yyyy / MM / dd - HH:mm:ss").format(Calendar.getInstance().getTime());
+        return timeStamp;
+    }
+    
     
     
 

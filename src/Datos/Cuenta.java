@@ -2,6 +2,8 @@ package Datos;
 
 import java.util.Date;
 import Datos.*;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class Cuenta 
 {
@@ -28,15 +30,11 @@ public class Cuenta
 
     public String generarNumeroCuenta()
     {
-        
+        Cliente x = new Cliente();
+        x.extraerDigitosIdentificacion();
         String numeroCuenta = "11"+"22"+"4 ultimos digitos";
         return numeroCuenta;
     }
     
-    public Date obtenerFechaCreacion()
-    {
-        
-        return null;
-    }
     
 }
