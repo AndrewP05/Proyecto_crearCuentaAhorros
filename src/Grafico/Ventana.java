@@ -1,5 +1,6 @@
 package Grafico;
 
+import Operaciones.GestionDatos;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
@@ -146,8 +147,10 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_JtextIdentificacionActionPerformed
 
     private void JbuttonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbuttonCrearActionPerformed
+        
         JOptionPane.showMessageDialog(this, "Se a creado la cuenta de ahorros con el numero: 11223667 , a la fecha: "+obtenerFechaCreacion());
         new Ventana2().setVisible(true);
+        this.crearCuenta();
         
         
     }//GEN-LAST:event_JbuttonCrearActionPerformed
@@ -198,6 +201,15 @@ public class Ventana extends javax.swing.JFrame {
         String timeStamp = new SimpleDateFormat("yyyy / MM / dd - HH:mm:ss").format(Calendar.getInstance().getTime());
         return timeStamp;
     }
+    
+    private void crearCuenta()
+    {
+        String nombre = JtextNombre.getText();
+        String identificacion = JtextIdentificacion.getText();
+        
+       
+    }    
+     
     
     
     
