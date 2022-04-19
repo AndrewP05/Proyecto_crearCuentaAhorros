@@ -4,20 +4,22 @@ import Datos.*;
 
 public class GestionDatos 
 {
-    private Cliente crearCliente(String nombre, String identificacion, float saldoinicial)
+    private Cliente crearCliente(String nombre, String identificacion, float saldoInicial)
     {
-        Cliente elCliente = this.crearCliente(nombre, identificacion, saldoinicial);
+        Cliente elCliente = this.crearCliente(nombre, identificacion, saldoInicial);
         Cliente s = new Cliente();
         s.modiNombre(nombre);
         s.modiIdentificacion(identificacion);
-        s.modiSaldoInicial(saldoinicial);
+        s.modiSaldoInicial(saldoInicial);
+       
+        
         
         return s;
     }
     
-    public Cuenta crearCuenta(String nombre, String identificacion, float saldoInicial, float saldo, String numeroCuenta)
+    public Cuenta crearCuenta(String nombre, String identificacion, float saldoInicial, float saldo, String numCuenta)
     {
-        if(nombre == null || identificacion == null || saldoInicial == -1 || saldo == -1 || numeroCuenta == null || nombre.isEmpty() || identificacion.isEmpty() || numeroCuenta.isEmpty())
+        if(nombre == null || identificacion == null || saldoInicial == -1 || saldo == -1 || numCuenta == null || nombre.isEmpty() || identificacion.isEmpty() || numCuenta.isEmpty())
         {
             return null;
         }
@@ -27,8 +29,9 @@ public class GestionDatos
             Cuenta c = new Cuenta();
             c.modiElCliente(elCliente);
             c.modiSaldo(saldo);
-            c.generarNumeroCuenta();
-            
+
+          
+        
             return c;
         }
     }

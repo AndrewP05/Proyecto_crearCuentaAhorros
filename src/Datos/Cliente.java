@@ -6,6 +6,7 @@ public class Cliente
     private String nombre;
     private String identificacion;
     private float saldoInicial;
+   
     
     
     public String obNombre()
@@ -20,6 +21,7 @@ public class Cliente
     {
         return this.saldoInicial;
     }
+
     
     public void modiNombre(String nombre)
     {
@@ -33,13 +35,14 @@ public class Cliente
     {
         this.saldoInicial = saldoInicial;
     }
+
     
     @Override
     public String toString()
     {
         return "Cliente "+this.nombre+" con identificación "+this.identificacion;
     }
-    public String extraerDigitosIdentificacion()
+    public String extraerDigitosIdentificacion() 
     {
         char num1 = identificacion.charAt(9);
         char num2 = identificacion.charAt(8);
@@ -51,5 +54,11 @@ public class Cliente
         return (Digitos);
         
     }
+    public String generarNumeroCuenta()
+    {
+        String numeroCuenta = "11"+"22"+"4 ultimos digitos"+extraerDigitosIdentificacion();
+        return numeroCuenta;
+    }
+    
 
 }
