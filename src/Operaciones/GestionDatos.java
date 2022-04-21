@@ -1,9 +1,29 @@
 package Operaciones;
 
-import Datos.*;
+import java.util.HashMap;
+import java.util.Map;
+import Datos.Cliente;
+import Datos.Cuenta;
+import java.io.Serializable;
+import utilidades.Persistencia;
 
-public class GestionDatos 
+public class GestionDatos implements Serializable
 {
+    private Map<String, Cuenta> listCuentas;
+    
+    public GestionDatos()
+    {
+        if(listCuentas == null)
+        {
+            listCuentas = (Map<String, Cuenta>) Persistencia.recuperar();
+            if(listCuentas == null)
+            {
+                listCuentas = new HashMap<>();
+            }
+                
+        }
+    }
+    
     private Cliente crearCliente(String nombre, String identificacion, float saldoInicial)
     {
         Cliente elCliente = this.crearCliente(nombre, identificacion, saldoInicial);
@@ -17,23 +37,35 @@ public class GestionDatos
         return s;
     }
     
-    public Cuenta crearCuenta(String nombre, String identificacion, float saldoInicial, float saldo, String numCuenta)
+    public Cuenta crearCuenta(String nombre, String identificacion, float saldo)
     {
-        if(nombre == null || identificacion == null || saldoInicial == -1 || saldo == -1 || numCuenta == null || nombre.isEmpty() || identificacion.isEmpty() || numCuenta.isEmpty())
+        if(nombre == null || identificacion == null || saldo == -1 || nombre.isEmpty() || identificacion.isEmpty())
         {
             return null;
         }
         else
         {
-            Cliente elCliente = this.crearCliente(nombre, identificacion, saldoInicial);
+            
+            Cliente elCliente = this.crearCliente(nombre, identificacion, saldo);
             Cuenta c = new Cuenta();
             c.modiElCliente(elCliente);
             c.modiSaldo(saldo);
-
-          
-        
-            return c;
+            String numCuenta = this.generarNumCuenta(identificacion);
+            if(numCuenta != null)
+            {
+                c.setNumCuenta(numCuenta);
+                return c;
+            }
+            else
+            {
+                return null;
+            }
+            
         }
+    }
+    public Map<String, Cuenta> obtenerLista()
+    {
+        return (Map<String, Cuenta>) this.listCuentas;
     }
     
     public Cuenta modificarSaldo(float saldo)
@@ -49,6 +81,45 @@ public class GestionDatos
             t.modiSaldo(saldo);
             
             return t;
+        }
+    }
+    
+    
+    public String generarNumCuenta(String identificacion) 
+    {
+        if(identificacion.length()>4)
+        {
+            char num1 = identificacion.charAt(identificacion.length()-1);
+            char num2 = identificacion.charAt(identificacion.length()-2);
+            char num3 = identificacion.charAt(identificacion.length()-3);
+            char num4 = identificacion.charAt(identificacion.length()-4); 
+            
+            String Digitos = (Character.toString(num1)+Character.toString(num2)+Character.toString(num3)+Character.toString(num4));
+            
+            String numeroCuenta ="11"+"22"+Digitos;
+            
+            return numeroCuenta;
+        }
+        else
+        {
+            return null;
+        }
+  
+    }
+    
+    public Cuenta generarCuenta(String nombre, String identificacion, float saldoInicial, float saldo ,String numCuenta)
+    {
+        if(nombre == null || identificacion == null || saldoInicial == -1 || saldo == -1|| numCuenta == null || nombre.isEmpty() || identificacion.isEmpty() || numCuenta.isEmpty())
+        {
+           return null;
+        }
+        else
+        {
+           Cliente elCliente = this.crearCliente(nombre, identificacion, saldoInicial);
+           Cuenta rc = new Cuenta();
+           
+           Persistencia.guardar(listCuentas);
+           return rc;
         }
     }
     

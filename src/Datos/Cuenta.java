@@ -7,9 +7,10 @@ import java.util.Calendar;
 
 public class Cuenta 
 {
-    private float saldo = 0;
+    private float saldo;
     private Cliente elCliente;
     private String numCuenta;
+    
     
     public float obSaldo()
     {
@@ -20,6 +21,10 @@ public class Cuenta
         return this.elCliente;
     }
 
+    public String getNumCuenta() 
+    {
+        return numCuenta;
+    }
     
     public void modiSaldo(float saldo)
     {
@@ -29,15 +34,11 @@ public class Cuenta
     {
         this.elCliente = elCliente;
     }
-
-
-    /*public String generarNumeroCuenta()
+     public void setNumCuenta(String numCuenta) 
     {
-        Cliente x = new Cliente();
-        x.extraerDigitosIdentificacion();
-        String numeroCuenta = "11"+"22"+"4 ultimos digitos";
-        return numeroCuenta;
-    }*/
-    
+        this.numCuenta = numCuenta;
+    }
+
+
     
 }
