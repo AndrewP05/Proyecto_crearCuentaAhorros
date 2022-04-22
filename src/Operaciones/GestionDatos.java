@@ -26,7 +26,7 @@ public class GestionDatos implements Serializable
     
     private Cliente crearCliente(String nombre, String identificacion, float saldoInicial)
     {
-        Cliente elCliente = this.crearCliente(nombre, identificacion, saldoInicial);
+        
         Cliente s = new Cliente();
         s.modiNombre(nombre);
         s.modiIdentificacion(identificacion);
