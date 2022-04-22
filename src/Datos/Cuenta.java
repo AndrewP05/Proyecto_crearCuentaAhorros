@@ -38,7 +38,11 @@ public class Cuenta
     {
         this.numCuenta = numCuenta;
     }
-
+     @Override
+    public String toString() {
+        return " Numero de cuenta"+this.numCuenta+" cliente  "+this.elCliente+"  saldo "+this.saldo;
+       
+    }
 
     
 }

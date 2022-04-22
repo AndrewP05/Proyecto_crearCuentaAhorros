@@ -15,7 +15,7 @@ public class GestionDatos implements Serializable
     {
         if(listCuentas == null)
         {
-            listCuentas = (Map<String, Cuenta>) Persistencia.recuperar();
+            listCuentas = (Map<String, Cuenta> )Persistencia.recuperar();
             if(listCuentas == null)
             {
                 listCuentas = new HashMap<>();
@@ -37,23 +37,26 @@ public class GestionDatos implements Serializable
         return s;
     }
     
-    public Cuenta crearCuenta(String nombre, String identificacion, float saldo)
+    public Cuenta crearCuenta(String nombre, String identificacion, float saldoInicial)
     {
-        if(nombre == null || identificacion == null || saldo == -1 || nombre.isEmpty() || identificacion.isEmpty())
+        if(nombre == null || identificacion == null || saldoInicial == -1 || nombre.isEmpty() || identificacion.isEmpty())
         {
             return null;
         }
         else
         {
             
-            Cliente elCliente = this.crearCliente(nombre, identificacion, saldo);
+            Cliente elCliente = this.crearCliente(nombre, identificacion, saldoInicial);
             Cuenta c = new Cuenta();
             c.modiElCliente(elCliente);
-            c.modiSaldo(saldo);
+            c.modiSaldo(saldoInicial);
             String numCuenta = this.generarNumCuenta(identificacion);
             if(numCuenta != null)
             {
                 c.setNumCuenta(numCuenta);
+                listCuentas.put(c.getNumCuenta(),c);
+                Persistencia.guardar(listCuentas);
+             
                 return c;
             }
             else
@@ -63,10 +66,7 @@ public class GestionDatos implements Serializable
             
         }
     }
-    public Map<String, Cuenta> obtenerLista()
-    {
-        return (Map<String, Cuenta>) this.listCuentas;
-    }
+    
     
     public Cuenta modificarSaldo(float saldo)
     {
@@ -123,5 +123,9 @@ public class GestionDatos implements Serializable
         }
     }
     
+    public Map<String, Cuenta> obtenerLista()
+    {
+        return (Map<String, Cuenta>) this.listCuentas;
+    }
     
 }

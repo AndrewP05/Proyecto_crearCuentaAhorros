@@ -15,6 +15,7 @@ public class Ventana extends javax.swing.JFrame {
     private DefaultTableModel tableModel;
     public Ventana() {
         initComponents();
+        this.cargaTabla();
     }
     
     
@@ -190,8 +191,8 @@ public class Ventana extends javax.swing.JFrame {
 
     private void JbuttonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbuttonCrearActionPerformed
       
-        new Ventana2().setVisible(true);
-        this.crearCuenta();
+        //new Ventana2().setVisible(true);
+        crearCuenta();
         
         
         
@@ -227,17 +228,18 @@ public class Ventana extends javax.swing.JFrame {
     {
         String nombre = JtextNombre.getText();
         String identificacion = JtextIdentificacion.getText();
-        String saldoInicial = JtextValorInicial.getText();
+        float saldoInicial = JtextValorInicial.getAlignmentY();
         
         
         GestionDatos f = new GestionDatos();
-        Cuenta c = f.generarCuenta(nombre, identificacion, 34, 43, nombre);
+        Cuenta c = f.crearCuenta(nombre, identificacion,saldoInicial);
 
         
         if (c != null)
         {
-            cargaTabla();
+            
             JOptionPane.showMessageDialog(this, "Creacion de la Cuenta ->"+c);
+            cargaTabla();
             
         }
         else
@@ -285,10 +287,12 @@ public class Ventana extends javax.swing.JFrame {
             Cuenta rc = dato.getValue();
             Object[] datos = 
             {
-                rc.getNumCuenta(),
-                rc.obElCliente().obIdentificacion(),
                 rc.obElCliente().obNombre(),
+                rc.obElCliente().obIdentificacion(),
+                obtenerFechaCreacion(),
+                //rc.getNumCuenta(),
                 rc.obElCliente().obSaldoInicial()
+             
             };
             modelo.addRow(datos);
         }
