@@ -15,7 +15,7 @@ public class Ventana extends javax.swing.JFrame {
     private DefaultTableModel tableModel;
     public Ventana() {
         initComponents();
-        this.cargaTabla();
+        
     }
     
     
@@ -128,28 +128,23 @@ public class Ventana extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JbuttonSalir)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(JbuttonSalir)
-                        .addGap(156, 156, 156)
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(JtextNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                            .addComponent(JtextIdentificacion)
+                            .addComponent(JtextValorInicial)))
+                    .addComponent(JlabelNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JlabelValorInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JlabelIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(JbuttonCrear)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(498, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(JtextNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                                            .addComponent(JtextIdentificacion)
-                                            .addComponent(JtextValorInicial)))
-                                    .addComponent(JlabelNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(JlabelValorInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(JlabelIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(58, 67, Short.MAX_VALUE)))
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 528, Short.MAX_VALUE)
                         .addGap(33, 33, 33))))
         );
         layout.setVerticalGroup(
@@ -191,8 +186,9 @@ public class Ventana extends javax.swing.JFrame {
 
     private void JbuttonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbuttonCrearActionPerformed
       
-        //new Ventana2().setVisible(true);
-        crearCuenta();
+           
+        crearCuenta();  
+        new Ventana2().setVisible(true);
         
         
         
@@ -278,7 +274,7 @@ public class Ventana extends javax.swing.JFrame {
         modelo.addColumn("IDENTIFICACION");
         modelo.addColumn("FECHA CREACION");
         modelo.addColumn("N° CUENTA");
-        modelo.addColumn("SALDO");
+        
         
         GestionDatos gestor = new GestionDatos();
         Map<String, Cuenta> lista = gestor.obtenerLista();
@@ -290,8 +286,8 @@ public class Ventana extends javax.swing.JFrame {
                 rc.obElCliente().obNombre(),
                 rc.obElCliente().obIdentificacion(),
                 obtenerFechaCreacion(),
-                //rc.getNumCuenta(),
-                rc.obElCliente().obSaldoInicial()
+                rc.getNumCuenta(),
+                
              
             };
             modelo.addRow(datos);

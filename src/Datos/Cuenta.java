@@ -1,7 +1,7 @@
 package Datos;
 
 import java.util.Date;
-import Datos.*;
+import Datos.Cliente;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -10,6 +10,7 @@ public class Cuenta
     private float saldo;
     private Cliente elCliente;
     private String numCuenta;
+
     
     
     public float obSaldo()
@@ -40,7 +41,7 @@ public class Cuenta
     }
      @Override
     public String toString() {
-        return " Numero de cuenta"+this.numCuenta+" cliente  "+this.elCliente+"  saldo "+this.saldo;
+        return " Numero de cuenta "+this.numCuenta+" | "+this.elCliente;
        
     }
 

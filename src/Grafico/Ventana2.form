@@ -42,10 +42,6 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="JLinea2" max="32767" attributes="0"/>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="JLinea" min="-2" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
@@ -77,25 +73,15 @@
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JSaldoCuenta" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextField5" min="-2" pref="85" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                              <Component id="JTitulo2" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="JRetirar" max="32767" attributes="0"/>
                                   <Component id="JConsignar" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="JTextConsignar" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
-                                  <Component id="JTextRetirar" alignment="1" min="-2" pref="89" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="JTextRetirar" min="-2" pref="89" max="-2" attributes="0"/>
+                                  <Component id="JTextConsignar" min="-2" pref="88" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -109,6 +95,11 @@
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+              <Component id="JTitulo2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -140,25 +131,18 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="JLinea2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JSaldoCuenta" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="JLinea" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
               <Component id="JTitulo2" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JConsignar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JTextConsignar" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="13" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JRetirar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JTextRetirar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JConsignar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="JTextRetirar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JRetirar" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="65" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="JCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="JContinuar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -201,19 +185,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="JLinea2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="--------------------------------------------------------------------------------"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="JSaldoCuenta">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="12" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Saldo de la cuenta:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="JLinea">
       <Properties>
         <Property name="text" type="java.lang.String" value="--------------------------------------------------------------------------------"/>
       </Properties>
@@ -277,8 +248,6 @@
     <Component class="javax.swing.JTextField" name="jTextField3">
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField4">
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField5">
     </Component>
   </SubComponents>
 </Form>
