@@ -11,7 +11,7 @@ public class Cuenta
     private Cliente elCliente;
     private String numCuenta;
 
-    
+   
     
     public float obSaldo()
     {
